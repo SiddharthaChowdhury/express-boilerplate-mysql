@@ -15,7 +15,7 @@ var express     = require('express'),
             password: '',
             host: 'localhost',
             port: '',
-            database: 'philips'
+            database: 'test'
         };
 
 dbconn.connectMySQL(dbconfig, function(conn){

@@ -1,3 +1,4 @@
+appName = 'Express-mysql-boilerplate';
 var express     = require('express'),
         app     = express(),
         http    =  require('http'),
@@ -66,7 +67,7 @@ dbconn.connectMySQL(dbconfig, function(conn){
         server.listen(port);
 
         server.on('listening', resolve());
-        server.on('error', reject());
+        server.on('error', reject(err));
     });
     
     p1.then(()=>{
@@ -80,7 +81,7 @@ dbconn.connectMySQL(dbconfig, function(conn){
         // Server is started
         console.log("\x1b[0m"); 
     })
-    .catch(()=>{
+    .catch((error)=>{
         if (error.syscall !== 'listen'){throw error;}
         var bind = typeof port === 'string'
         ? 'Pipe ' + port
